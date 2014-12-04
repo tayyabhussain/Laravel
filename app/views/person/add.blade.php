@@ -1,7 +1,7 @@
 @extends('layout.main')
 
 @section('content')
-<form action={{URL::route('person-add-post')}} method="post">
+<form action={{URL::route('person-add-post')}} method="post" class="pure-form pure-form-stacked">
     <div class="field">
         Name
         <input type="text" name="name" />
@@ -36,7 +36,7 @@
             {{$errors->first('phone')}}
         @endif
     </div>
-    <input type="submit" value="Add Person" />
+    <input type="submit" value="Add Person" class="btn"/>
     {{Form::token()}}
     
 </form>
