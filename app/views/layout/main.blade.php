@@ -5,10 +5,10 @@
     <title> Laravel Practice</title>
     <body>
         {{ HTML::style('css/main.css') }}
+        @include('layout.navigation')
         @if(Session::has('global'))
         <p>{{Session::get('global')}}</p>
         @endif
-        @include('layout.navigation')
         @yield('content')
     </body>
 </html>

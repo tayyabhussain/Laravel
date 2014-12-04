@@ -34,23 +34,33 @@ class PersonController extends BaseController
         $passwrod = Input::get('password');
         $address = Input::get('address');
         $phone = Input::get('phone');
-        $person=Person::create(array(
-            'name'=>$name,
-            'email'=>$email,
-            'password'=>$passwrod,
-            'address'=>$address,
-            'phone'=>$phone
+        $person = Person::create(array(
+                    'name' => $name,
+                    'email' => $email,
+                    'password' => $passwrod,
+                    'address' => $address,
+                    'phone' => $phone
         ));
-        if($person){
-             return Redirect::route('home')
-                        ->with('global','user added');
+        if ($person) {
+            return Redirect::route('home')
+                            ->with('global', 'person added');
         }
     }
-    
-    public function viewAll(){
-        $result= DB::select('select * from persons');
+
+    public function viewAll()
+    {
+        $result = DB::select('select * from persons');
         return View::make('person.viewall')
-                ->with(array('array'=>$result));
+                        ->with(array('array' => $result));
+    }
+
+    public function delete()
+    {
+        $id = array_search("delete",Input::all());
+        DB::delete('delete from persons where id = ?',array($id));
+        
+        return Redirect::route('home')
+                ->with('global','person deleted');
     }
 
 }

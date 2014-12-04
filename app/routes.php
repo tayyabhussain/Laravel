@@ -23,3 +23,9 @@ Route::get("/person/viewall",array(
         "uses"=>"PersonController@viewAll"
         )
     );
+
+Route::post("/person/delete",array(
+        "as"=>"person-delete",
+        "uses"=>"PersonController@delete"
+        )
+    );
