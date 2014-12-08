@@ -7,5 +7,15 @@ class HomeController extends BaseController
     {
         return View::make('home.home');
     }
+    
+    public function aboutUs()
+    {
+        return View::make('home.aboutus');
+    }
+    
+    public function contactUs()
+    {
+        return View::make('home.contactus');
+    }
 
 }

@@ -86,20 +86,30 @@ class PersonController extends BaseController
                             ->withErrors($validator)
                             ->withInput();
         }
-        $name = Input::get('name');
-        $email = Input::get('email');
-        $passwrod = Input::get('password');
-        $address = Input::get('address');
-        $phone = Input::get('phone');
-        $id = array_search("Save", Input::all());
-        DB::update('update persons set name= ?,'
-                . 'email=?,'
-                . 'password=?,'
-                . 'address=?,'
-                . 'phone=? where id = ?', array($name, $email, $passwrod, $address,
-            $phone, $id));
-        return View::make('home.home')
-                ->with('global','Profile has been updated');
+        else {
+            $name = Input::get('name');
+            $email = Input::get('email');
+            $passwrod = Input::get('password');
+            $address = Input::get('address');
+            $phone = Input::get('phone');
+            $id = array_search("Save", Input::all());
+            DB::update('update persons set'
+                    . ' name= ?,'
+                    . 'email=?,'
+                    . 'password=?,'
+                    . 'address=?,'
+                    . 'phone=? where'
+                    . ' id = ?', array(
+                $name,
+                $email,
+                $passwrod,
+                $address,
+                $phone,
+                $id)
+                );
+            return View::make('home.home')
+                            ->with('global', 'Profile has been updated');
+        }
     }
 
 }

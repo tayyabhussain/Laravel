@@ -40,6 +40,4 @@
 {{Form::token()}}
 </form>
 @stop
-<!--
- 
--->
+

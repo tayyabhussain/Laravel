@@ -5,6 +5,15 @@ Route::get('/', array(
     'uses' => 'HomeController@showWelcome'
 ));
 
+Route::get('/home/contactus', array(
+    'as' => 'home-about-us',
+    'uses' => 'HomeController@aboutUs'
+));
+
+Route::get('/home/aboutus', array(
+    'as' => 'home-contact-us',
+    'uses' => 'HomeController@contactUs'
+));
 
 
 Route::get("/person/add", array(
