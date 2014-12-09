@@ -17,7 +17,7 @@
     <form action="{{URL::route('person-delete')}}" method="post">
         <td><input type="submit" value="delete" name="{{$person->id}}"/></td>
     </form>
-    <form action="{{URL::route('person-edit')}}" method="post">
+    <form action="{{URL::route('person-edit')}}" method="get">
         <td><input type="submit" value="edit" name="{{$person->id}}"/></td>
     </form>
 </tr>

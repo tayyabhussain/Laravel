@@ -38,16 +38,18 @@ Route::post("/person/delete", array(
     "uses" => "PersonController@delete"
         )
 );
-
-Route::post("/person/edit", array(
+Route::get("/person/edit", array(
     "as" => "person-edit",
     "uses" => "PersonController@edit"
         )
 );
-
 Route::post("/person/editpost", array(
     "as" => "person-edit-post",
     "uses" => "PersonController@editPost"
         )
 );
 
+Route::get("/account/authenticate",array(
+    "as"=>"account-authenticate",
+    "uses" => "AccountController@authenticate"
+));

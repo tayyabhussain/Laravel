@@ -65,6 +65,7 @@ class PersonController extends BaseController
 
     public function edit()
     {
+        
         $id = array_search("edit", Input::all());
         $person = DB::select('select * from persons where id = ?', array($id));
         $person = $person[0];
@@ -82,7 +83,8 @@ class PersonController extends BaseController
                     "phone" => "required"
         ));
         if ($validator->fails()) {
-            return Redirect::route('person-edit-post')
+          
+            return Redirect::back()
                             ->withErrors($validator)
                             ->withInput();
         }
@@ -112,4 +114,5 @@ class PersonController extends BaseController
         }
     }
 
+    
 }
