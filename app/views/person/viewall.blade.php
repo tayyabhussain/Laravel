@@ -23,5 +23,8 @@
 </tr>
 @endforeach
 </table>
+<div class="pagination"">
+    {{$array->links()}}
+</div>
 
 @stop

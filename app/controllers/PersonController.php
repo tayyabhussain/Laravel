@@ -49,7 +49,8 @@ class PersonController extends BaseController
 
     public function viewAll()
     {
-        $result = DB::select('select * from persons');
+        $result = Person::simplePaginate(5);
+     //   $result = DB::table('persons');
         return View::make('person.viewall')
                         ->with(array('array' => $result));
     }
